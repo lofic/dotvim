@@ -1,0 +1,27 @@
+snippet wide
+	---
+	{{< slide class="wide" >}}
+snippet revwide
+	---
+	{{< slide class="reverse wide" >}}
+snippet 2cols
+	---
+	{{< slide class="content1" >}}
+	
+	{{< split cols= "2" >}}
+	${1}
+	{{< /split >}}
+	{{< split cols="2" >}}
+	
+	{{< /split >}}
+snippet hugoimg
+	![${1}](images/${2})
+snippet chapter
+	---
+	{{< slide class="chapter" >}}
+snippet revchapter
+	---
+	{{< slide class="chapter reverse" >}}
+snippet title
+	---
+	{{< slide class="title" >}}

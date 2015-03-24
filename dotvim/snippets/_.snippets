@@ -1,0 +1,111 @@
+# Global snippets
+# (c) holds no legal value ;)
+snippet c)
+	`&enc[:2] == "utf" ? "©" : "(c)"` Copyright `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.${2}
+snippet date
+	`strftime("%Y-%m-%d")`
+snippet gpl
+	# Copyright (C) `strftime("%Y")` `system("git config user.name")` (<`system("git config user.email")`>)
+	#
+	# This program is free software: you can redistribute it and/or modify
+	# it under the terms of the GNU General Public License as published by
+	# the Free Software Foundation, version 3 of the License.
+	#
+	# This program is distributed in the hope that it will be useful,
+	# but WITHOUT ANY WARRANTY; without even the implied warranty of
+	# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	# GNU General Public License for more details.
+	#
+	# You should have received a copy of the GNU General Public License
+	# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+	
+	${1}
+snippet #head
+	# Author:: `system("git config user.name")` (<`system("git config user.email")`>)
+	# Date:: `system("ruby -e 'puts Time.now'")`
+	#
+	${1}
+snippet mcagent
+	module MCollective
+	    module Agent
+	        class ${1:Agentname}<RPC::Agent
+	            action "${2:action name}" do
+	                ${3}
+	            end
+	        end
+	    end
+	end
+	${4}
+snippet APACHE
+	${1:one line to give the program's name and a brief description}
+	Copyright `strftime("%Y")` ${2:copyright holder}
+	
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+	
+	    http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+	
+	${3}
+# Asciidoc : see in asciidoc.snippets
+# Markdown : see in octopress.snippets
+snippet mimg
+	![${1:alt_text}](images/${2:title}.png)${3}
+# reveal.js markdown slide content
+snippet ms
+	
+	<section data-markdown>
+		<script type="text/template">
+	${1:content}
+		</script>
+	</section>
+	
+	${2}
+# Puppet custom
+snippet ppackage
+	package { '${1:package name}' :
+	    ensure => ${2:present},
+	}
+
+	${3}
+snippet pservice
+	service { '${1:service name}' :
+	    ensure => ${2:running},
+	    enable => ${3:true},
+	}
+
+	${4}
+snippet sfile
+	file { '${1:filename}' :
+	    ensure => '${2:file}',
+	    source => 'puppet:///modules/${3:modulename}/${4:source}',
+	    owner  => '${5:root}',
+	    group  => '${6:root}',
+	    mode   => '${7:0640}',
+	}
+
+	${8}
+snippet tfile
+	file { '${1:filename}' :
+	    ensure  => '${2:file}',
+	    content => template('${3:modulename}/${4:tplfile}'),
+	    owner   => '${5:root}',
+	    group   => '${6:root}',
+	    mode    => '${7:0640}',
+	}
+
+	${8}
+# Basic makefile
+snippet makefile
+	P=${1:program_name}
+	OBJECTS=
+	CFLAGS = -g -Wall -O3 -std=gnu11
+	LDLIBS=
+	CC=gcc
+	$(P): $(OBJECTS)

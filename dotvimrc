@@ -1,0 +1,502 @@
+" You should consider adding this in your .bashrc :
+" alias g='gvim --remote-silent'
+
+" be iMproved
+set nocompatible
+
+" set a ruler to warn of long lines
+highlight ColorColumn ctermbg=lightmagenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+" Try to avoid nasty terminal artefacts
+set t_RV=
+
+" Quick visual line selection
+xnoremap v $h
+
+" highlight tabs
+highlight MyTabs cterm=bold term=bold ctermbg=lightgray ctermfg=black
+match MyTabs /\t/
+
+" language of the UI
+let $LANG='en_US.UTF-8'
+set langmenu=en_US.UTF-8
+
+if has("win32")
+    source $VIMRUNTIME/vimrc_example.vim
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
+endif
+
+" pathogen for plugin bundles
+runtime bundle/pathogen/autoload/pathogen.vim
+let g:pathogen_disabled = []
+if !has('python')
+     call add(g:pathogen_disabled, 'flake8')
+     call add(g:pathogen_disabled, 'jedi')
+endif
+
+" Disable some plugins
+"call add(g:pathogen_disabled, 'ack')
+"call add(g:pathogen_disabled, 'addon-mw-utils')
+"call add(g:pathogen_disabled, 'airline')
+"call add(g:pathogen_disabled, 'airline-themes')
+"call add(g:pathogen_disabled, 'asciidoc')
+"call add(g:pathogen_disabled, 'asciitune')
+"call add(g:pathogen_disabled, 'autoclose')
+"call add(g:pathogen_disabled, 'ctrlp')
+"call add(g:pathogen_disabled, 'cucumber')
+"call add(g:pathogen_disabled, 'deletetrailingwhitespace')
+"call add(g:pathogen_disabled, 'dragvisuals')
+"call add(g:pathogen_disabled, 'easytags')
+"call add(g:pathogen_disabled, 'endwise')
+"call add(g:pathogen_disabled, 'flake8')
+"call add(g:pathogen_disabled, 'fontsize')
+"call add(g:pathogen_disabled, 'fugitive')
+"call add(g:pathogen_disabled, 'indent-object')
+"call add(g:pathogen_disabled, 'jedi')
+"call add(g:pathogen_disabled, 'json')
+"call add(g:pathogen_disabled, 'mcollective')
+"call add(g:pathogen_disabled, 'mediawiki')
+"call add(g:pathogen_disabled, 'minibufexpl')
+"call add(g:pathogen_disabled, 'misc')
+"call add(g:pathogen_disabled, 'nerdtree')
+"call add(g:pathogen_disabled, 'pathogen')
+"call add(g:pathogen_disabled, 'puppet')
+"call add(g:pathogen_disabled, 'revealhugosnippets')
+"call add(g:pathogen_disabled, 'rooter')
+"call add(g:pathogen_disabled, 'ruby')
+"call add(g:pathogen_disabled, 'scrollcolors')
+"call add(g:pathogen_disabled, 'snipmate')
+"call add(g:pathogen_disabled, 'snippets')
+"call add(g:pathogen_disabled, 'surround')
+"call add(g:pathogen_disabled, 'syntastic')
+"call add(g:pathogen_disabled, 'tabular')
+"call add(g:pathogen_disabled, 'tagbar')
+"call add(g:pathogen_disabled, 'taglist')
+"call add(g:pathogen_disabled, 'terraform')
+"call add(g:pathogen_disabled, 'tlib_vim')
+"call add(g:pathogen_disabled, 'unimpaired')
+"call add(g:pathogen_disabled, 'visincr')
+
+" Those two are messing up the console
+if !has('gui_running')
+  call add(g:pathogen_disabled, 'jedi')
+  call add(g:pathogen_disabled, 'flake8')
+endif
+
+" Enable the plugins
+call pathogen#infect()
+call pathogen#helptags()
+
+" fonts and encoding
+if has("win32")
+    if has("multi_byte")
+        if &termencoding == ""
+            let &termencoding = &encoding
+        endif
+        " better default than latin1
+        set encoding=utf-8
+        " change default file encoding when writing new files
+        setglobal fileencoding=utf-8
+        " order to check for encodings when reading files
+        set fileencodings=ucs-bom,utf-8,latin1
+        "set guifont=courier_new:h10
+        "set guifont=Lucida_Console:h10
+        set guifont=DejaVu_Sans_Mono_for_Powerline:h10
+        " ^-- you need to install this one
+        "set guifont=DejaVu_Sans_Mono:h11
+        " ^-- you need to install this one
+        colorscheme lofic
+    endif
+else
+    "set guifont=Monospace\ 14
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    " ^-- you need to put the powerline fonts in ~/.fonts
+    " then : fc-cache -vf ~/.fonts
+endif
+
+" airline status line
+let g:airline_theme='light'
+" also consider this if you want a colored status bar :
+" set t_Co=256
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+if has('gui_running')
+    let g:airline_powerline_fonts=1
+endif
+set laststatus=2
+set ttimeoutlen=50
+
+"let g:snippets_dir='~/.vim/snippets'
+
+" printing options
+set printoptions=header:0,duplex:long,paper:a4
+
+" no beep no flash
+set noeb vb t_vb=
+
+" disable the splash screen
+set shortmess+=I
+
+" GUI options
+"set guioptions-=m   " remove menu bar
+"set guioptions-=T   " remove toolbar
+set guioptions-=r   " remove right-hand scroll bar
+set guioptions-=R
+set guioptions-=l   " remove left-hand scroll bar
+set guioptions-=L
+
+" move up and down one DISPLAYED line, ignoring line wrap
+map k gk
+map j gj
+
+" for my own good
+"""map <Left> <Nop>
+"""map <Right> <Nop>
+"""map <Up> <Nop>
+"""map <Down> <Nop>
+"""imap <up> <nop>
+"""imap <down> <nop>
+"""imap <left> <nop>
+"""imap <right> <nop>
+
+syntax on
+
+filetype plugin indent on
+
+" terminal with 256 colors
+set t_Co=256
+
+" no backup files
+set backupcopy=no
+set nobackup
+
+" indentation
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set smartindent
+set et
+
+set textwidth=80
+
+"set ts=4 sts=4 sw=4 tw=80 smarttab et
+
+" highlight search
+set hlsearch
+
+" turn off search highlighting when you're done searching
+nmap <silent> <C-N> :silent noh<CR>
+
+" clear search pattern
+nmap <silent> <C-L> :let @/ = ""<CR>
+
+" supertab and Omni completion
+"let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+
+" Bubbling text
+" It needs the unimpaired plugin
+" Bubble single lines
+nmap <C-PageUp> [e
+nmap <C-PageDown> ]e
+" Bubble multiple lines
+vmap <C-PageUp> [egv
+vmap <C-PageDown> ]egv
+
+" allows unsaved buffers to be navigated away from
+set hidden
+
+"<leader>
+let mapleader=","
+
+" toggle line numbers
+map <silent> <Leader>n :setlocal number!<CR>
+
+" toggle set paste
+"set pastetoggle=<Leader>p
+nnoremap <leader>p :set paste<cr>i
+
+" refresh screen
+nnoremap <leader>l :redraw!<cr>
+
+" convenient for Spelling -> Suggest corrections
+set mousemodel=popup
+
+" delta
+inoremap <leader>d <C-O>:UnicodeSearch! U+0394<cr>1<cr>
+
+" split bar style
+" set fillchars+=vert:\
+" set fillchars=
+" below it is not a pipe (| vs │)
+" │ = unicode BOX DRAWINGS LIGHT VERTICAL (U+2502)
+" Alt 179 on Windows XP and you need a font with unicode chars (like courier_new
+" or Lucida_Console)
+set fillchars+=vert:\│
+
+" Use  :LanguageToolCheck  to check grammar in current buffer.
+" Use  :LanguageToolClear  to remove highlighting and close the scratch window
+" let g:languagetool_jar=$HOME . '/.vim/LanguageTool-1.2/LanguageTool.jar'
+
+" mappings for surround plugin
+xmap s S
+
+" cdc = Change to Directory of Current file
+map <leader>cdc :cd %:p:h<cr>
+" cdc using cd  : for all windows
+" cwd using lcd : only for the current window
+map <leader>cwd :lcd %:p:h<cr>:pwd<cr>
+
+function! Cwd()
+  execute 'lcd %:p:h'
+  execute 'pwd'
+endfunction
+command! -bar -range=% Cwd call Cwd()
+
+" search in buffers
+nmap ; :CtrlPBuffer<CR>
+
+" faster escape - type it fast
+imap ;; <Esc>"
+
+" switch spellcheck languages
+let g:myLang = 0
+let g:myLangList = [ "nospell", "fr", "en" ]
+function! MySpellLang()
+" loop through languages
+  let g:myLang = g:myLang + 1
+  if g:myLang >= len(g:myLangList) | let g:myLang = 0 | endif
+  if g:myLang == 0 | set nospell | endif
+  if g:myLang == 1 | setlocal spell spelllang=fr | endif
+  if g:myLang == 2 | setlocal spell spelllang=en | endif
+  echo "language:" g:myLangList[g:myLang]
+endf
+map <F8> :call MySpellLang()<CR>
+
+" autoclose
+autocmd FileType vim let g:autoclose_vimfilemode = 1
+
+" json
+let g:vim_json_syntax_conceal = 0
+
+" Markdown
+" autocmd BufNewFile,BufRead *.markdown setfiletype octopress
+" setl ft will override any previous setfiletype
+autocmd BufNewFile,BufRead *.markdown setl ft=markdown
+autocmd BufNewFile,BufRead *.md setl ft=markdown
+command Md setfiletype markdown
+command Cl0 set conceallevel=0
+command Cl2 set conceallevel=2
+set conceallevel=2
+
+" Build the pdf document
+function! Mbuild()
+  execute '!' . 'gimli -f ' . bufname("%")
+endfunction
+
+" Show the pdf output
+function! Mshow()
+  execute '!' . 'evince ' . expand("%:r") . '.pdf &'
+endfunction
+
+command! -bar -range=% Mbuild call Mbuild()
+command! -bar -range=% Mshow call Mshow()
+command! -bar -range=% Msee  call Mshow()
+
+nnoremap <leader>g :call Mbuild()<cr>
+
+" Asciidoc
+" Now in my bundle = asciitune
+nnoremap <leader>r :call Arev()<cr>
+nnoremap <leader>s :call Ashow()<cr>
+nnoremap <leader>b :call Abuild()<cr>
+nnoremap <leader>m :call Amin()<cr>
+
+" tagbar mediawiki support
+autocmd FileType mediawiki silent :!ctags %
+command Wiki setfiletype mediawiki
+let g:tagbar_type_mediawiki = {
+    \ 'ctagstype' : 'mediawiki',
+    \ 'kinds'     : [
+    \     'h:header',
+    \ ],
+    \ 'sort'    : 0
+    \ }
+
+" tagbar markdown support
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '~/.vim/scripts/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+
+let g:tagbar_type_octopress = {
+    \ 'ctagstype': 'octopress',
+    \ 'ctagsbin' : '~/.vim/scripts/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+
+
+
+" underline the current line with : <F5><u>
+" useful for asciidoc sections
+"nn <F5>u yypVr-
+nn <F4>u yyp<C-V>$r=
+nn <F5>u yyp<C-V>$r-
+nn <F6>u yyp<C-V>$r~
+nn <F7>u yyp<C-V>$r^
+
+" Ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" match ruby blocks
+runtime macros/matchit.vim
+
+
+" Python
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" ctags
+set tags=./.tags;
+
+" easytags
+let g:easytags_updatetime_min = 4000
+let g:easytags_updatetime_warn = 0
+let g:easytags_suppress_ctags_warning = 1
+
+" Taglist
+" Note : now I use Tagbar instead
+"let g:Tlist_Use_Right_Window = 0
+"let g:Tlist_WinWidth = 25
+"map Y :TlistToggle<CR>
+
+" Tagbar
+nmap T :TagbarToggle<CR>
+let g:tagbar_left = 1
+let g:tagbar_width = 25
+let g:tagbar_compact = 1
+
+" NERDTree
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize = 20
+function! ToggleTree()
+    execute 'NERDTreeToggle'
+    execute 'vertical resize 20'
+endfunction
+"map <F9> <Esc>:NERDTreeToggle<CR>
+map <F9> <Esc>:call ToggleTree()<CR>
+
+" miniBufExpl
+let g:miniBufExplCycleArround = 1
+noremap <C-TAB>   :MBEbn<CR>
+noremap <C-S-TAB> :MBEbp<CR>
+noremap <C-L> :MBEbn<CR>
+noremap <C-H> :MBEbp<CR>
+cabbrev bd <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'MBEbd' : 'bd')<CR>
+function! CloseAll()
+  execute 'NERDTreeClose'
+  execute 'bufdo MBEbd'
+  execute 'MBEOpen'
+endfunction
+cmap bq call CloseAll()<CR>
+" deprecated :
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
+
+" rooter
+" To stop Rooter echoing the project directory:
+let g:rooter_silent_chdir = 1
+
+" syntastic
+" to show missing lint or syntax checkers :
+"let g:syntastic_debug=3
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+
+" Wipe out all buffers
+nmap <silent> ,wa :1,9000bwipeout<cr>
+
+" Navigate
+nnoremap <silent> <C-Right> <c-w>l
+nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> <c-w>k
+nnoremap <silent> <C-Down> <c-w>j
+
+" Display a message in reverse video
+function! s:DisplayStatus(msg)
+  echohl Todo
+  echo a:msg
+  echohl None
+endfunction
+
+" Cleaning of code
+" - replace tabs with spaces;
+" - delete trailing whitespaces at the end of lines.
+function! CleanCode()
+  set expandtab
+  %retab
+  %s= *$==e
+  call s:DisplayStatus('Code cleaned')
+endfunction
+
+" Use with :
+" :CleanCode
+command! -bar -range=% CleanCode call CleanCode()
+
+" Syntax group for item under cursor
+nmap <F12> :call SynStack()<CR>
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunction
+
+" color for item under cursor
+nmap <F11> :call <SID>SynColour()<CR>
+function! <SID>SynColour()
+  echo "guibg = ".synIDattr(synIDtrans( synID(line("."), col("."), 1) ), "bg#").", guifg = ".synIDattr(synIDtrans( synID(line("."), col("."), 1) ), "fg#")
+endfunction
+
+" dragvisuals
+" Cf Damian Conway, 'More Instantly Better Vim' - OSCON 2013
+"""vmap  <expr>  <LEFT>   DVB_Drag('left')
+"""vmap  <expr>  <RIGHT>  DVB_Drag('right')
+"""vmap  <expr>  <DOWN>   DVB_Drag('down')
+"""vmap  <expr>  <UP>     DVB_Drag('up')
+"""vmap  <expr>  D        DVB_Duplicate()
+" Remove any introduced trailing whitespace after moving...
+"""let g:DVB_TrimWS = 1
+
+" Opt for new parser; remove deprecation warning
+let g:snipMate = { 'snippet_version' : 1 }

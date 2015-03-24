@@ -1,0 +1,165 @@
+snippet links
+	[${1:name}](http://${2:url} "${3:title}")${4}
+snippet ml
+	[${1:name}](http://${2:url})${3}
+snippet imgurl
+	![${1:alt_text}](${2:img} "${3:title}")${4}
+snippet ovideo
+	{% video ${1:url} 640 480 }${2}
+snippet video
+	<div class="video-container">
+	${1:url}
+	</div>
+	${2}
+snippet oimage
+	{% img ${1:url}	${2:width} ${3:height} ${4:title} %}${5}
+snippet more!
+	<!-- more -->${1}
+snippet instag
+	{% instag ${1:url} %}${2}
+snippet note
+	<span class="note">${1:Note}</span>
+snippet warning
+	<span class="warning">${1:Warning}</span>
+snippet important
+	<span class="important">${1:Important}</span>
+# Octopress codeblocks
+snippet cb
+	{% codeblock %}
+	${1:code}
+	{% endcodeblock %}
+	${2}
+snippet cbt
+	{% codeblock ${1:title} %}
+	${2:code}
+	{% endcodeblock %}
+	${3}
+snippet cbl
+	{% codeblock lang:${1:lang} %}
+	${2:code}
+	{% endcodeblock %}
+	${3}
+snippet cbtl
+	{% codeblock ${1:title} lang:${2:lang} %}
+	${3:code}
+	{% endcodeblock %}
+	${4}
+snippet cbs
+	{% codeblock lang:sh %}
+	${1:code}
+	{% endcodeblock %}
+	${2}
+snippet cbr
+	{% codeblock lang:ruby %}
+	${1:code}
+	{% endcodeblock %}
+	${2}
+snippet cbp
+	{% codeblock lang:python %}
+	${1:code}
+	{% endcodeblock %}
+	${2}
+snippet cbi
+	{% codeblock lang:ini %}
+	${1:code}
+	{% endcodeblock %}
+	${2}
+snippet cbx
+	{% codeblock lang:xml %}
+	${1:code}
+	{% endcodeblock %}
+	${2}
+# Flavored markdown (Github) codeblocks
+snippet cf
+	\`\`\`
+	${1:code}
+	\`\`\`
+	${2}
+snippet cfs
+	\`\`\`shell
+	${1:code}
+	\`\`\`
+	${2}
+snippet cfr
+	\`\`\`ruby
+	${1:code}
+	\`\`\`
+	${2}
+snippet cfp
+	\`\`\`python
+	${1:code}
+	\`\`\`
+	${2}
+snippet cfx
+	\`\`\`xml
+	${1:code}
+	\`\`\`
+	${2}
+snippet cfy
+	\`\`\`yaml
+	${1:code}
+	\`\`\`
+	${2}
+snippet ms
+	\`\`\`
+	${1:code}
+	\`\`\`
+	${2}
+snippet mss
+	\`\`\`shell
+	${1:code}
+	\`\`\`
+	${2}
+snippet msr
+	\`\`\`ruby
+	${1:code}
+	\`\`\`
+	${2}
+snippet msp
+	\`\`\`python
+	${1:code}
+	\`\`\`
+	${2}
+snippet msx
+	\`\`\`xml
+	${1:code}
+	\`\`\`
+	${2}
+snippet msy
+	\`\`\`yaml
+	${1:code}
+	\`\`\`
+	${2}
+# Emoji
+snippet minfo
+	:information_source:
+snippet mnote
+	:information_source:
+snippet mwarning
+	:warning:
+snippet mwarn
+	:warning:
+snippet malert
+	:exclamation:
+snippet mbang
+	:bangbang:
+# Sections
+snippet m0
+	# ${1:title of the document}
+snippet m1
+	## ${1:section level 1}
+snippet m2
+	### ${1:section level 2}
+snippet m3
+	#### ${1:section level 3}
+snippet m4
+	##### ${1:section level 4}
+snippet m5
+	###### ${1:section level 5}
+# Page break
+snippet mpb
+	
+	<div style="page-break-after: always;"></div>
+	
+	${1}
+
