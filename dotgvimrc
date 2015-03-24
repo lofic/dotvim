@@ -1,0 +1,12 @@
+colorscheme lofic
+set lines=32 columns=120
+
+" bars
+"set guioptions-=m  "remove menu bar
+"set guioptions-=T  "remove toolbar
+
+" no beep no flash
+set vb t_vb=
+
+" highlight long lines
+let &colorcolumn="80"

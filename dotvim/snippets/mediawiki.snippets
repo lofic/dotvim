@@ -1,0 +1,82 @@
+# header Level 1
+snippet h1
+	= ${1} =
+
+	${2}
+# header Level 2
+snippet h2
+	== ${1} ==
+
+	${2}
+snippet h3
+	=== ${1} ===
+
+	${2}
+snippet h4
+	==== ${1} ====
+
+	${2}
+snippet h5
+	===== ${1} =====
+
+	${2}
+snippet h6
+	====== ${1} ======
+
+	${2}
+# italic
+snippet i
+	''${1}'' ${2}
+# bold
+snippet b
+	'''${1}''' ${2}
+# bold and italic
+snippet bi
+	''''${1}'''' ${2}
+snippet strike
+	<strike>${1}</strike> ${2}
+# underlined text
+snippet u
+	<u>${1}</u> ${2}
+# monospaced text
+snippet m
+	<tt>${1}</tt> ${2}
+# superscript text
+snippet sup
+	<sup>${1}</sup> ${2}
+# subscript text
+snippet sub
+	<sub>${1}</sub> ${2}
+snippet nowiki
+	<nowiki>${1}</nowiki> ${2}
+# bullet list
+snippet bl
+	* ${1}
+# numbered list
+snippet ol
+	# ${1}
+# internal link
+snippet il
+	[[${1}|${2}]] ${3}
+# external link
+snippet el
+	[${1} ${2}] ${3}
+# external resources such as images
+snippet res
+	[[Image:${1}]] ${2}
+# inline code block
+snippet ilcode
+	<code>${1}</code> ${0}
+# code block
+snippet code
+	<pre>
+	${1}
+	</pre>
+	${2}
+# horizontal ruler
+snippet hr
+	----
+	${2}
+# indent
+snippet in
+	: ${1}
