@@ -220,6 +220,7 @@ _current_project_cache = None, None
 def get_project():
     vim_environment_path = vim_eval("g:jedi#environment_path")
     vim_project_path = vim_eval("g:jedi#project_path")
+    vim_added_sys_path = vim_eval("g:jedi#added_sys_path")
 
     global _current_project_cache
     cache_key = dict(project_path=vim_project_path, environment_path=vim_environment_path)
@@ -236,7 +237,9 @@ def get_project():
     else:
         project_path = vim_project_path
 
-    project = jedi.Project(project_path, environment_path=environment_path)
+    project = jedi.Project(project_path,
+                           environment_path=environment_path,
+                           added_sys_path=vim_added_sys_path)
 
     _current_project_cache = cache_key, project
     return project
@@ -1112,7 +1115,7 @@ def set_buffer(path: Optional[Path], options='', using_tagstack=False):
     if path in (vim.current.buffer.name, os.path.abspath(vim.current.buffer.name)):
         return True
 
-    path = os.path.relpath(path)
+    path = relpath(path)
     # options are what you can to edit the edit options
     if int(vim_eval('g:jedi#use_tabs_not_buffers')) == 1:
         _tabnew(path, options)

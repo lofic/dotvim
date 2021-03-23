@@ -96,8 +96,6 @@ cp -r bundle/* ~/.vim/bundle
 cp -r scripts/* ~/.vim/scripts
 cp -r fonts/* ~/.fonts
 
-# Little cosmetic patch
-sed -i 's/Underlined/PreProc/g' ~/.vim/bundle/octopress/syntax/octopress.vim
 
 # Python
 if [ "$py" = 'false' ]; then

@@ -37,29 +37,29 @@ cd $workdir
 
 touch releases
 
-get https://github.com/bling/vim-airline.git
-get https://github.com/vim-airline/vim-airline-themes.git
-get https://github.com/lofic/asciitune.git
-get https://github.com/lofic/vim-autoclose.git
 get https://github.com/MarcWeber/vim-addon-mw-utils.git
 get https://github.com/airblade/vim-rooter.git
-get https://github.com/rodjek/vim-puppet.git
 get https://github.com/andviro/flake8-vim.git
 get https://github.com/atdt/vim-mediawiki.git
+get https://github.com/bling/vim-airline.git
 get https://github.com/davidhalter/jedi-vim.git
 get https://github.com/drmikehenry/vim-fontsize.git
 get https://github.com/elzr/vim-json.git
 get https://github.com/garbas/vim-snipmate.git
 get https://github.com/godlygeek/tabular.git
+get https://github.com/hashivim/vim-terraform.git
 get https://github.com/honza/vim-snippets.git
 get https://github.com/kien/ctrlp.vim.git
+get https://github.com/lofic/asciitune.git
+get https://github.com/lofic/revealhugosnippets.git
+get https://github.com/lofic/vim-autoclose.git
 get https://github.com/lofic/vim-dragvisuals.git
 get https://github.com/majutsushi/tagbar.git
 get https://github.com/michaeljsmith/vim-indent-object.git
 get https://github.com/mileszs/ack.vim.git
+get https://github.com/rodjek/vim-puppet.git
 get https://github.com/scrooloose/nerdtree.git
 get https://github.com/scrooloose/syntastic.git
-get https://github.com/tangledhelix/vim-octopress.git
 get https://github.com/techlivezheng/vim-plugin-minibufexpl.git
 get https://github.com/tomtom/tlib_vim.git
 get https://github.com/tpope/vim-cucumber.git
@@ -67,15 +67,14 @@ get https://github.com/tpope/vim-endwise.git
 get https://github.com/tpope/vim-fugitive.git
 get https://github.com/tpope/vim-pathogen.git
 get https://github.com/tpope/vim-surround.git
-get https://github.com/hashivim/vim-terraform.git
 get https://github.com/tpope/vim-unimpaired.git
+get https://github.com/vim-airline/vim-airline-themes.git
 get https://github.com/vim-ruby/vim-ruby.git
 get https://github.com/vim-scripts/DeleteTrailingWhitespace.git
 get https://github.com/vim-scripts/ScrollColors.git
 get https://github.com/vim-scripts/VisIncr.git
 get https://github.com/xolox/vim-easytags.git
 get https://github.com/xolox/vim-misc.git
-
 # taglist
 tlrepo=http://sourceforge.net/projects/vim-taglist
 wget $tlrepo/files/latest/download?source=files -O taglist.zip

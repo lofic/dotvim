@@ -72,6 +72,12 @@ font.
 From
 [https://github.com/bling/vim-airline](https://github.com/bling/vim-airline)
 
+### airline-themes
+
+A collection of themes for vim-airline.
+
+From
+[https://github.com/vim-airline/vim-airline-themes]([https://github.com/vim-airline/vim-airline-themes)
 
 ### asciidoc
 
@@ -80,7 +86,7 @@ document generation).
 
 From AsciiDoc, last changed in AsciiDoc 8.2.0 ATOW.
 
-### Asciitune
+### asciitune
 
 My own customizations for asciidoc. Create/edit a revision history; build the
 pdf document; show the pdf output.
@@ -234,15 +240,6 @@ From
 [https://github.com/scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 
 
-### octopress
-
-Syntax highlighting for Octopress post and page files. Both Markdown and Textile
-modes are supported.
-
-From
-[https://github.com/tangledhelix/vim-octopress](https://github.com/tangledhelix/vim-octopress)
-
-
 ### pathogen
 
 Plugin management.Makes it super easy to install plugins and runtime files in
@@ -257,10 +254,15 @@ From
 Syntax highlighting and other stuff for puppet.
 
 From
-[https://github.com/ajf/puppet-vim](https://github.com/ajf/puppet-vim)
+[https://github.com/rodjek/vim-puppet](https://github.com/rodjek/vim-puppet)
 
-Note : I should give a try to [https://github.com/rodjek/vim-puppet](https://github.com/rodjek/vim-puppet)
 
+### revealhugosnippets
+
+My personnal snippets to ease writing with the reveal-hugo theme.
+
+From
+[https://github.com/lofic/revealhugosnippets](https://github.com/lofic/revealhugosnippets)
 
 ### rooter
 

@@ -39,6 +39,7 @@ endif
 "call add(g:pathogen_disabled, 'ack')
 "call add(g:pathogen_disabled, 'addon-mw-utils')
 "call add(g:pathogen_disabled, 'airline')
+"call add(g:pathogen_disabled, 'airline-themes')
 "call add(g:pathogen_disabled, 'asciidoc')
 "call add(g:pathogen_disabled, 'asciitune')
 "call add(g:pathogen_disabled, 'autoclose')
@@ -51,6 +52,7 @@ endif
 "call add(g:pathogen_disabled, 'flake8')
 "call add(g:pathogen_disabled, 'fontsize')
 "call add(g:pathogen_disabled, 'fugitive')
+"call add(g:pathogen_disabled, 'indent-object')
 "call add(g:pathogen_disabled, 'jedi')
 "call add(g:pathogen_disabled, 'json')
 "call add(g:pathogen_disabled, 'mcollective')
@@ -58,9 +60,9 @@ endif
 "call add(g:pathogen_disabled, 'minibufexpl')
 "call add(g:pathogen_disabled, 'misc')
 "call add(g:pathogen_disabled, 'nerdtree')
-"call add(g:pathogen_disabled, 'octopress')
 "call add(g:pathogen_disabled, 'pathogen')
 "call add(g:pathogen_disabled, 'puppet')
+"call add(g:pathogen_disabled, 'revealhugosnippets')
 "call add(g:pathogen_disabled, 'rooter')
 "call add(g:pathogen_disabled, 'ruby')
 "call add(g:pathogen_disabled, 'scrollcolors')
@@ -71,8 +73,8 @@ endif
 "call add(g:pathogen_disabled, 'tabular')
 "call add(g:pathogen_disabled, 'tagbar')
 "call add(g:pathogen_disabled, 'taglist')
-"call add(g:pathogen_disabled, 'tlib_vim')
 "call add(g:pathogen_disabled, 'terraform')
+"call add(g:pathogen_disabled, 'tlib_vim')
 "call add(g:pathogen_disabled, 'unimpaired')
 "call add(g:pathogen_disabled, 'visincr')
 
@@ -283,14 +285,16 @@ autocmd FileType vim let g:autoclose_vimfilemode = 1
 " json
 let g:vim_json_syntax_conceal = 0
 
-" Octopress (markdown)
+" Markdown
 " autocmd BufNewFile,BufRead *.markdown setfiletype octopress
 " setl ft will override any previous setfiletype
-autocmd BufNewFile,BufRead *.markdown setl ft=octopress
-autocmd BufNewFile,BufRead *.md setl ft=octopress
-command Op setfiletype octopress
+autocmd BufNewFile,BufRead *.markdown setl ft=markdown
+autocmd BufNewFile,BufRead *.md setl ft=markdown
+command Md setfiletype markdown
+command Cl0 set conceallevel=0
+command Cl2 set conceallevel=2
+set conceallevel=2
 
-" Markdown
 " Build the pdf document
 function! Mbuild()
   execute '!' . 'gimli -f ' . bufname("%")
