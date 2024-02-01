@@ -4,7 +4,8 @@
 " be iMproved
 set nocompatible
 
-highlight ColorColumn ctermbg=magenta
+" set a ruler to warn of long lines
+highlight ColorColumn ctermbg=lightmagenta
 call matchadd('ColorColumn', '\%81v', 100)
 
 " Try to avoid nasty terminal artefacts
